@@ -1,0 +1,28 @@
+{
+  "stac_version": "1.0.0",
+  "type": "Catalog",
+  "id": "example",
+  "description": "A simple catalog example",
+  "links": [
+    {
+      "rel": "root",
+      "href": "./catalog.json",
+      "type": "application/json",
+      "title": "Example"
+    },
+    {
+      "rel": "child",
+      "href": "./NO2/collection.json",
+      "type": "application/json",
+      "title": "Nitrogen dioxide daily average",
+      "endpointtype": "WMS",
+      "subtitle": "Nitrogen dioxide daily average description",
+      "code": "N1b_NO2",
+      "themes": ["air"],
+      "tags": ["placeholder"],
+      "satellite": ["placeholder"],
+      "sensor": ["placeholder"],
+      "agency": ["CAMS", "ECMWF"]
+    }
+  ]
+}
