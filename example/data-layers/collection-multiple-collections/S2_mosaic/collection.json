@@ -6,22 +6,10 @@
   "license": "proprietary",
   "extent": {
     "spatial": {
-      "bbox": [
-        [
-          -180,
-          -90,
-          180,
-          90
-        ]
-      ]
+      "bbox": [[-180, -90, 180, 90]]
     },
     "temporal": {
-      "interval": [
-        [
-          "2022-07-19T00:00:00Z",
-          "2023-11-14T00:00:00Z"
-        ]
-      ]
+      "interval": [["2022-07-19T00:00:00Z", "2023-11-14T00:00:00Z"]]
     }
   },
   "links": [
@@ -31,11 +19,19 @@
     },
     {
       "rel": "item",
-      "href": "./S2A_10TES_20220719_0_L2A/item.json"
+      "href": "./S2A_33TVE_20240122_0_L2A/item.json"
     },
     {
       "rel": "item",
-      "href": "./S2A_10TES_20220726_0_L2A/item.json"
+      "href": "./S2A_33TVF_20240122_0_L2A/item.json"
+    },
+    {
+      "rel": "item",
+      "href": "./S2A_33TWE_20240122_0_L2A/item.json"
+    },
+    {
+      "rel": "item",
+      "href": "./S2A_33TWF_20240122_0_L2A/item.json"
     },
     {
       "rel": "parent",
