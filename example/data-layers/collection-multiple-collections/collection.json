@@ -1,0 +1,41 @@
+{
+  "type": "Collection",
+  "stac_version": "1.0.0",
+  "id": "collection-multiple-collections",
+  "description": "A collection with multiple collections/timeranges",
+  "license": "proprietary",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -180,
+          -90,
+          180,
+          90
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          "2022-07-19T00:00:00Z",
+          "2023-11-14T00:00:00Z"
+        ]
+      ]
+    }
+  },
+  "links": [
+    {
+      "rel": "root",
+      "href": "../../catalog.json"
+    },
+    {
+      "rel": "child",
+      "href": "./S2_mosaic/collection.json"
+    },
+    {
+      "rel": "parent",
+      "href": "../collection.json"
+    }
+  ]
+}

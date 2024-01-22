@@ -1,0 +1,45 @@
+{
+  "type": "Collection",
+  "stac_version": "1.0.0",
+  "id": "S2_mosaic",
+  "description": "A mosaic consisting of multiple S2 images",
+  "license": "proprietary",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -180,
+          -90,
+          180,
+          90
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          "2022-07-19T00:00:00Z",
+          "2023-11-14T00:00:00Z"
+        ]
+      ]
+    }
+  },
+  "links": [
+    {
+      "rel": "root",
+      "href": "../../../catalog.json"
+    },
+    {
+      "rel": "item",
+      "href": "./S2A_10TES_20220719_0_L2A/item.json"
+    },
+    {
+      "rel": "item",
+      "href": "./S2A_10TES_20220726_0_L2A/item.json"
+    },
+    {
+      "rel": "parent",
+      "href": "../collection.json"
+    }
+  ]
+}

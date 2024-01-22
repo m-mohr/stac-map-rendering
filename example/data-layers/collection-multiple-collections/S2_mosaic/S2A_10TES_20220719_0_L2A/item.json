@@ -2,6 +2,24 @@
   "type": "Feature",
   "stac_version": "1.0.0",
   "id": "S2A_10TES_20220719_0_L2A",
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [-123.00024970027405, 46.95370017993546],
+        [-121.64400625076323, 46.945669936373996],
+        [-121.69041589211409, 46.8482020202659],
+        [-121.8049595036886, 46.57503865190746],
+        [-122.0662081763136, 45.96174507421938],
+        [-123.00024522349527, 45.96556014847656],
+        [-123.00024970027405, 46.95370017993546]
+      ]
+    ]
+  },
+  "bbox": [
+    -123.00024970027405, 45.96174507421938, -121.64400625076323,
+    46.95370017993546
+  ],
   "properties": {
     "created": "2022-11-06T13:27:17.089249+00:00",
     "platform": "sentinel-2a",
@@ -44,20 +62,6 @@
     "earthsearch:boa_offset_applied": true,
     "processing:software": { "sentinel2-to-stac": "0.1.0" },
     "updated": "2022-11-06T13:27:17.089249+00:00"
-  },
-  "geometry": {
-    "type": "Polygon",
-    "coordinates": [
-      [
-        [-123.00024970027405, 46.95370017993546],
-        [-121.64400625076323, 46.945669936373996],
-        [-121.69041589211409, 46.8482020202659],
-        [-121.8049595036886, 46.57503865190746],
-        [-122.0662081763136, 45.96174507421938],
-        [-123.00024522349527, 45.96556014847656],
-        [-123.00024970027405, 46.95370017993546]
-      ]
-    ]
   },
   "links": [
     {
@@ -927,19 +931,5 @@
       ],
       "roles": ["data", "reflectance"]
     }
-  },
-  "bbox": [
-    -123.00024970027405, 45.96174507421938, -121.64400625076323,
-    46.95370017993546
-  ],
-  "stac_extensions": [
-    "https://stac-extensions.github.io/mgrs/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/raster/v1.1.0/schema.json",
-    "https://stac-extensions.github.io/grid/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/view/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/projection/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/processing/v1.1.0/schema.json",
-    "https://stac-extensions.github.io/eo/v1.0.0/schema.json"
-  ],
-  "collection": "sentinel-2-l2a"
+  }
 }
