@@ -31,6 +31,10 @@
     },
     {
       "rel": "child",
+      "href": "./S2A_20240112/collection.json"
+    },
+    {
+      "rel": "child",
       "href": "./S2A_20240122/collection.json"
     },
     {
