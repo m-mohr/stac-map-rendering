@@ -1,7 +1,7 @@
 {
   "type": "Collection",
   "stac_version": "1.0.0",
-  "id": "S2_mosaic",
+  "id": "S2A_20240122",
   "description": "A mosaic consisting of multiple S2 images",
   "license": "proprietary",
   "extent": {

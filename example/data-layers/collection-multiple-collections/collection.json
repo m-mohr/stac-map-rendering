@@ -31,7 +31,7 @@
     },
     {
       "rel": "child",
-      "href": "./S2_mosaic/collection.json"
+      "href": "./S2A_20240122/collection.json"
     },
     {
       "rel": "parent",
