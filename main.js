@@ -13,18 +13,43 @@ const setup = async () => {
 
 setup();
 
-// let stacInfo;
+eoxMap.map.once("loadend", () => {
+  const deGroupify = (collection, parentCollection) => {
+    collection.forEach((l) => {
+      if (!l) return;
+      if (l.getLayers) {
+        deGroupify(l.getLayers(), collection);
+      } else {
+        if (l.declutter_ === undefined) {
+          // raster layer
+          l.set("title", l.get("stac")._context.id);
+          parentCollection.push(l);
+          setTimeout(() => {
+            parentCollection.removeAt(0);
+          });
+        } else {
+          // vector layer
+          setTimeout(() => {
+            collection.remove(l);
+          });
+        }
+      }
+    });
+  };
 
-// eoxMap.map.once("loadend", () => {
-//   const stacGroup = eoxMap.map.getLayers().getArray()[1];
-//   const wmsLayer = stacGroup.getLayers().getArray()[1];
-//   stacGroup.setVisible(false);
-//   stacInfo = wmsLayer.get("stac");
-//   wmsLayer.set("id", stacInfo.title);
-//   wmsLayer.set("title", stacInfo.title);
-//   stacGroup.getLayers().remove(wmsLayer);
-//   eoxMap.map.addLayer(wmsLayer);
-// });
+  console.time("degroup")
+  deGroupify(eoxMap.map.getLayers());
+  console.timeEnd("degroup")
+
+  // const stacGroup = eoxMap.map.getLayers().getArray()[1];
+  // const wmsLayer = stacGroup.getLayers().getArray()[1];
+  // stacGroup.setVisible(false);
+  // stacInfo = wmsLayer.get("stac");
+  // wmsLayer.set("id", stacInfo.title);
+  // wmsLayer.set("title", stacInfo.title);
+  // stacGroup.getLayers().remove(wmsLayer);
+  // eoxMap.map.addLayer(wmsLayer);
+});
 
 // const eoxTimeControl = document.createElement("eox-timecontrol");
 // eoxTimeControl.for = "eox-map";
