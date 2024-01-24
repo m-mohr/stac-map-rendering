@@ -11,11 +11,11 @@
       "title": "Example Catalog"
     },
     {
-      "href": "./base-layers/collection.json",
+      "href": "./data-layers/collection.json",
       "rel": "child"
     },
     {
-      "href": "./data-layers/collection.json",
+      "href": "./base-layers/collection.json",
       "rel": "child"
     }
   ]
