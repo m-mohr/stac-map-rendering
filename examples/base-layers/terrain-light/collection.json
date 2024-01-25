@@ -1,0 +1,32 @@
+{
+  "type": "Collection",
+  "stac_version": "1.0.0",
+  "id": "terrain-light",
+  "description": "Terrain Light background layer by EOX - 3857",
+  "license": "proprietary",
+  "extent": {
+    "spatial": {
+      "bbox": [[-180, -90, 180, 90]]
+    },
+    "temporal": {
+      "interval": [["2000-01-01T00:00:00Z", "2024-12-31T23:59:59Z"]]
+    }
+  },
+  "links": [
+    {
+      "rel": "root",
+      "href": "../../catalog.json"
+    },
+    {
+      "rel": "wms",
+      "href": "https://s2maps-tiles.eu/wms?service=wms",
+      "wms:layers": [
+        "terrain-light_3857"
+      ]
+    },
+    {
+      "rel": "parent",
+      "href": "../collection.json"
+    }
+  ]
+}

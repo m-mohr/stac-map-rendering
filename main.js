@@ -7,20 +7,36 @@ import { parseStacToEOxJson } from "./parseStac.js";
 const eoxMap = document.querySelector("eox-map");
 
 const setup = async () => {
-  const json = await parseStacToEOxJson("./example/catalog.json");
-  eoxMap.zoom = 8;
+  const json = await parseStacToEOxJson("/examples/indicators/CO/catalog.json");
   eoxMap.config = {
     view: {
-      zoom: 7,
-      center: [15, 40.5],
+      zoom: 4,
+      center: [12, 45],
     },
-    layers: [...json, { type: "Tile", source: { type: "OSM" } }],
+    layers: json,
   };
 
+  // undo layer grouping of ol-stac
+  postProcess(json);
+};
+
+setup();
+
+// const eoxTimeControl = document.createElement("eox-timecontrol");
+// eoxTimeControl.for = "eox-map";
+// eoxTimeControl.layer = "NO2";
+
+// eoxTimeControl.animationProperty = "TIME";
+// eoxTimeControl.animationValues = ["2023-10-30", "2023-11-06", "2023-11-13"];
+
+// document.body.appendChild(eoxTimeControl);
+
+
+const postProcess = (json) => {
+  
   /**
    * de-group layer groups created by ol-stac
    */
-
   const deGroupify = (collection, parentCollection) => {
     collection.forEach((l) => {
       if (!l) return;
@@ -46,33 +62,17 @@ const setup = async () => {
   const countStacLayers = (layerJsonArray) => {
     layerJsonArray.forEach((l) => {
       if (l.type === "STAC") {
-        counter++;
+        counter += 2;
       } else if (l.type === "Group") {
         countStacLayers(l.layers);
       }
     });
   };
   countStacLayers(json);
-
   eoxMap.map.on("postcompose", () => {
-    counter--;
     if (counter === 0) {
       deGroupify(eoxMap.map.getLayers());
     }
+    counter--;
   });
-
-  /**
-   * de-group end
-   */
 };
-
-setup();
-
-// const eoxTimeControl = document.createElement("eox-timecontrol");
-// eoxTimeControl.for = "eox-map";
-// eoxTimeControl.layer = "NO2";
-
-// eoxTimeControl.animationProperty = "TIME";
-// eoxTimeControl.animationValues = ["2023-10-30", "2023-11-06", "2023-11-13"];
-
-// document.body.appendChild(eoxTimeControl);

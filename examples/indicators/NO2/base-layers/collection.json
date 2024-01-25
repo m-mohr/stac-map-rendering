@@ -1,0 +1,29 @@
+{
+  "type": "Collection",
+  "stac_version": "1.0.0",
+  "id": "base-layers",
+  "description": "Indicator base layers",
+  "license": "proprietary",
+  "extent": {
+    "spatial": {
+      "bbox": [[-180, -90, 180, 90]]
+    },
+    "temporal": {
+      "interval": [["2023-01-01T00:00:00Z", "2023-12-31T23:59:59Z"]]
+    }
+  },
+  "links": [
+    {
+      "rel": "root",
+      "href": "../catalog.json"
+    },
+    {
+      "rel": "child",
+      "href": "/examples/base-layers/terrain-light/collection.json"
+    },
+    {
+      "rel": "parent",
+      "href": "../catalog.json"
+    }
+  ]
+}

@@ -39,6 +39,7 @@ export const parseStacToEOxJson = async (stacUrl, date) => {
               .layers.push({
                 type: "STAC",
                 url: layerItem._fetchUrl,
+                displayWebMapLink: true,
                 properties: {
                   id: layerItem.id,
                   title: layerItem.id,
@@ -62,6 +63,7 @@ export const parseStacToEOxJson = async (stacUrl, date) => {
                 .layers.push({
                   type: "STAC",
                   url: layerItem._fetchUrl,
+                  displayWebMapLink: true,
                   properties: {
                     id: layerItem.id,
                     title: layerItem.id,
@@ -78,7 +80,7 @@ export const parseStacToEOxJson = async (stacUrl, date) => {
 };
 
 const buildPath = (path, prefix) => {
-  let builtPath;
+  let builtPath = path;
   if (path.startsWith("./")) {
     // convert relative child link into
     // link that is relative to root

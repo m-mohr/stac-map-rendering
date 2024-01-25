@@ -1,0 +1,20 @@
+{
+  "type": "Catalog",
+  "stac_version": "1.0.0",
+  "id": "CH4",
+  "description": "Methane (CH4) from Sentinel-5p Tropomi",
+  "links": [
+    {
+      "rel": "root",
+      "href": "./catalog.json"
+    },
+    {
+      "href": "./data-layers/collection.json",
+      "rel": "child"
+    },
+    {
+      "href": "./base-layers/collection.json",
+      "rel": "child"
+    }
+  ]
+}

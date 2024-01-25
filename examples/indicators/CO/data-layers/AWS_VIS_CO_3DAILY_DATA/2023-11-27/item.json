@@ -1,0 +1,32 @@
+{
+  "type": "Feature",
+  "stac_version": "1.0.0",
+  "id": "2023-11-27",
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [-180.0, -90.0],
+      [180.0, -90.0],
+      [180.0, 90.0],
+      [-180.0, 90.0],
+      [-180.0, -90.0]
+    ]
+  },
+  "bbox": [-180.0, -90.0, 180.0, 90.0],
+  "properties": {
+    "datetime": "2023-11-27T00:00:00Z"
+  },
+  "links": [
+    {
+      "rel": "wms",
+      "href": "https://services.sentinel-hub.com/ogc/wms/0635c213-17a1-48ee-aef7-9d1731695a54",
+      "wms:layers": [
+        "AWS_VIS_CO_3DAILY_DATA"
+      ],
+      "wms:dimensions": {
+        "TIME": "2023-11-27T00:00:00Z"
+      }
+    }
+  ],
+  "assets": {}
+}
