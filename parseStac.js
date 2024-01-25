@@ -72,11 +72,8 @@ export const parseStacToEOxJson = async (stacUrl, date) => {
         }
       }
     }
-    // console.log(json);
 
-    setTimeout(() => {
-      resolve(json);
-    }, 2000);
+    resolve(json);
   });
 };
 
