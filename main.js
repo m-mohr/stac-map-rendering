@@ -5,35 +5,32 @@ import "https://unpkg.com/@eox/layercontrol";
 import { parseStacToEOxJson } from "./parseStac.js";
 
 const eoxMap = document.querySelector("eox-map");
+eoxMap.config = {
+  view: {
+    zoom: 4,
+    center: [12, 45],
+  },
+  layers: [],
+};
 
-const setup = async () => {
-  const json = await parseStacToEOxJson("/examples/indicators/CO/catalog.json");
-  eoxMap.config = {
-    view: {
-      zoom: 4,
-      center: [12, 45],
-    },
-    layers: json,
-  };
+const setup = async (url, date) => {
+  const json = await parseStacToEOxJson(url, date);
+  eoxMap.layers = json;
 
   // undo layer grouping of ol-stac
   postProcess(json);
 };
 
-setup();
+const testUrl = "/examples/indicators/CO/catalog.json";
+setup(testUrl, new Date("1989-07-07"));
 
-// const eoxTimeControl = document.createElement("eox-timecontrol");
-// eoxTimeControl.for = "eox-map";
-// eoxTimeControl.layer = "NO2";
-
-// eoxTimeControl.animationProperty = "TIME";
-// eoxTimeControl.animationValues = ["2023-10-30", "2023-11-06", "2023-11-13"];
-
-// document.body.appendChild(eoxTimeControl);
-
+document.querySelectorAll("button").forEach((btn) => {
+  btn.addEventListener("click", (evt) => {
+    setup(testUrl, new Date(evt.target.textContent));
+  });
+});
 
 const postProcess = (json) => {
-  
   /**
    * de-group layer groups created by ol-stac
    */

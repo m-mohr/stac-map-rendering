@@ -1,4 +1,4 @@
-export const parseStacToEOxJson = async (stacUrl, date) => {
+export const parseStacToEOxJson = async (stacUrl, date = new Date()) => {
   return new Promise(async (resolve) => {
     const json = [];
     const indicator = await fetchStac(stacUrl);
@@ -32,8 +32,46 @@ export const parseStacToEOxJson = async (stacUrl, date) => {
         }
         if (layer.links.some((link) => link.rel === "item")) {
           // collection-multiple-items
-          for (const i of layer.links.filter((link) => link.rel === "item")) {
-            const layerItem = await fetchStac(i.href, layer._fetchUrl);
+          const sorted = layer.links
+            .filter((link) => link.rel === "item")
+            .sort((a, b) => {
+              const distancea = Math.abs(date - new Date(a.datetime));
+              const distanceb = Math.abs(date - new Date(b.datetime));
+              return distancea - distanceb; // sort a before b when the distance is smaller
+            });
+          const layerItem = await fetchStac(sorted[0].href, layer._fetchUrl);
+          json
+            .find((lG) => lG.properties.id === layerGroup.id)
+            .layers.push({
+              type: "STAC",
+              url: layerItem._fetchUrl,
+              displayWebMapLink: true,
+              properties: {
+                id: layerItem.id,
+                title: layerItem.id,
+              },
+            });
+        }
+        if (layer.links.some((link) => link.rel === "child")) {
+          // collection-multiple-collections
+          const sorted = layer.links
+            .filter((link) => link.rel === "child")
+            .sort((a, b) => {
+              const distancea = Math.abs(date - new Date(a.datetime));
+              const distanceb = Math.abs(date - new Date(b.datetime));
+              return distancea - distanceb; // sort a before b when the distance is smaller
+            });
+          const layerCollection = await fetchStac(
+            sorted[0].href,
+            layer._fetchUrl
+          );
+          for (const i of layerCollection.links.filter(
+            (link) => link.rel === "item"
+          )) {
+            const layerItem = await fetchStac(
+              i.href,
+              layerCollection._fetchUrl
+            );
             json
               .find((lG) => lG.properties.id === layerGroup.id)
               .layers.push({
@@ -45,31 +83,6 @@ export const parseStacToEOxJson = async (stacUrl, date) => {
                   title: layerItem.id,
                 },
               });
-          }
-        }
-        if (layer.links.some((link) => link.rel === "child")) {
-          // collection-multiple-collections
-          for (const lC of layer.links.filter((link) => link.rel === "child")) {
-            const layerCollection = await fetchStac(lC.href, layer._fetchUrl);
-            for (const i of layerCollection.links.filter(
-              (link) => link.rel === "item"
-            )) {
-              const layerItem = await fetchStac(
-                i.href,
-                layerCollection._fetchUrl
-              );
-              json
-                .find((lG) => lG.properties.id === layerGroup.id)
-                .layers.push({
-                  type: "STAC",
-                  url: layerItem._fetchUrl,
-                  displayWebMapLink: true,
-                  properties: {
-                    id: layerItem.id,
-                    title: layerItem.id,
-                  },
-                });
-            }
           }
         }
       }
