@@ -1,0 +1,32 @@
+{
+  "type": "Catalog",
+  "stac_version": "1.0.0",
+  "id": "AWS_VIS_CO_3DAILY_DATA",
+  "title": "CO, 3-daily, AWS",
+  "description": "Carbon monoxide from Sentinel-5p Tropomi, hosted on AWS",
+  "links": [
+    {
+      "rel": "root",
+      "href": "../collection.json"
+    },
+    {
+      "rel": "parent",
+      "href": "../collection.json"
+    },
+    {
+      "rel": "item",
+      "href": "./2023-11-25/item.json",
+      "datetime": "2023-11-25T00:00:00Z"
+    },
+    {
+      "rel": "item",
+      "href": "./2023-11-26/item.json",
+      "datetime": "2023-11-26T00:00:00Z"
+    },
+    {
+      "rel": "item",
+      "href": "./2023-11-27/item.json",
+      "datetime": "2023-11-27T00:00:00Z"
+    }
+  ]
+}

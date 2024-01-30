@@ -1,0 +1,48 @@
+{
+  "type": "Feature",
+  "stac_version": "1.0.0",
+  "id": "GCS_VIS_CO_1MONTHLY_DATA-2023-11-25",
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [[
+      [-180.0, -90.0],
+      [180.0, -90.0],
+      [180.0, 90.0],
+      [-180.0, 90.0],
+      [-180.0, -90.0]
+    ]]
+  },
+  "bbox": [-180.0, -90.0, 180.0, 90.0],
+  "properties": {
+    "datetime": "2023-11-25T00:00:00Z"
+  },
+  "collection": "CO",
+  "links": [
+    {
+      "rel": "root",
+      "href": "../../collection.json"
+    },
+    {
+      "rel": "parent",
+      "href": "../catalog.json"
+    },
+    {
+      "rel": "collection",
+      "href": "../../collection.json"
+    },
+    {
+      "rel": "wms",
+      "href": "https://services.sentinel-hub.com/ogc/wms/0635c213-17a1-48ee-aef7-9d1731695a54",
+      "wms:layers": [
+        "GCS_VIS_CO_1MONTHLY_DATA"
+      ],
+      "wms:dimensions": {
+        "TIME": "2023-11-25T00:00:00Z"
+      },
+      "roles": [
+        "data"
+      ]
+    }
+  ],
+  "assets": {}
+}

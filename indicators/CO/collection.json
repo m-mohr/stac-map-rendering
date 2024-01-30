@@ -1,0 +1,54 @@
+{
+  "type": "Collection",
+  "stac_version": "1.0.0",
+  "id": "CO",
+  "description": "Carbon Monoxide (CO) from Sentinel-5p Tropomi",
+  "license": "proprietary",
+  "extent": {
+    "spatial": {
+      "bbox": [[-180, -90, 180, 90]]
+    },
+    "temporal": {
+      "interval": [["2023-01-01T00:00:00Z", "2023-12-31T23:59:59Z"]]
+    }
+  },
+  "links": [
+    {
+      "rel": "root",
+      "href": "./catalog.json"
+    },
+    {
+      "rel": "child",
+      "href": "./AWS_VIS_CO_3DAILY_DATA/catalog.json"
+    },
+    {
+      "rel": "child",
+      "href": "./GCS_VIS_CO_1MONTHLY_DATA/catalog.json"
+    },
+    {
+      "id": "terrain-light",
+      "title": "Terrain Light background layer by EOX - 3857",
+      "rel": "wms",
+      "href": "https://s2maps-tiles.eu/wms?service=wms",
+      "wms:layers": [
+        "terrain-light_3857"
+      ],
+      "roles": [
+        "basemap",
+        "default"
+      ]
+    },
+    {
+      "id": "overlay_base_bright_3857",
+      "title": "Overlay Country Borders Bright by EOX - 3857",
+      "rel": "wms",
+      "href": "https://s2maps-tiles.eu/wms?service=wms",
+      "wms:layers": [
+        "overlay_base_bright_3857"
+      ],
+      "roles": [
+        "overlay"
+      ]
+    }
+  ]
+}
